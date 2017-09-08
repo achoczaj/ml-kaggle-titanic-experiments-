@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://bradleyboehmke.github.io/2015/12/scraping-html-text.html -->
+<html lang="en-us" class="gr__bradleyboehmke_github_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Scraping HTML Text · Bradley Boehmke
+    
+    
+  </title>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/poole.css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/syntax.css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/lanyon.css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/font-awesome.min.css">
+  
+  <script async="" src="http://www.google-analytics.com/analytics.js"></script><script src="./Scraping HTML Text · Bradley Boehmke_files/MathJax.js.download" id="">
+  </script>
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://bradleyboehmke.github.io/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://bradleyboehmke.github.io/public/icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://bradleyboehmke.github.io/feed/">
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {display: block; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-ex-box-test {position: absolute; width: 1px; height: 60ex}
+.mjx-line-box-test {display: table!important}
+.mjx-line-box-test span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+</style></head>
+
+
+  <body data-gr-c-s-loaded="true" data-feedly-mini="yes"><div id="MathJax_Message" style="display: none;"></div>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>
+         </p><center>
+         <div><img src="./Scraping HTML Text · Bradley Boehmke_files/logo.png" width="90%" height="90%" <="" img=""></div>
+         </center>
+    <p></p>
+    <p>
+         </p><center>
+              <a href="https://twitter.com/bradleyboehmke" target="_blank">
+                   <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+              </a>  &nbsp;
+              <a href="https://github.com/bradleyboehmke" target="_blank">
+                   <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+              </a>  &nbsp;
+              <a href="https://www.linkedin.com/in/brad-boehmke-ph-d-9b0a257" target="_blank">
+                   <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+              </a>  &nbsp;
+              <a href="mailto:bradleyboehmke@gmail.com" target="_blank">
+                   <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+              </a>
+         </center>
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/">Home</a>
+
+    
+
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/papers/">Papers</a>
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/presentations/">Presentations</a>
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/books/">Books</a>
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/software/">Software</a>
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/digital_projects/">Digital Projects</a>
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/courses/">Courses</a>
+          <a class="sidebar-nav-item" href="http://bradleyboehmke.github.io/workshops/">Workshops</a>
+  </nav>
+
+  <div class="sidebar-item">
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="http://bradleyboehmke.github.io/" title="Home">Bradley Boehmke</a>
+            <small></small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  
+  
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Scraping HTML Text · Bradley Boehmke
+    
+    
+  </title>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/poole.css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/syntax.css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/lanyon.css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/css">
+  <link rel="stylesheet" href="./Scraping HTML Text · Bradley Boehmke_files/font-awesome.min.css">
+  
+  <script src="./Scraping HTML Text · Bradley Boehmke_files/MathJax.js.download" id="">
+  </script>
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://bradleyboehmke.github.io/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://bradleyboehmke.github.io/public/icon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://bradleyboehmke.github.io/feed/">
+
+
+
+  <a href="http://bradleyboehmke.github.io/blog/">↩</a>
+  
+  <header class="post-header">
+    <h1 class="post-title">Scraping HTML Text</h1>
+    <p class="post-meta">
+      Dec 14, 2015 &nbsp; • &nbsp; Filed under: 
+      
+            &nbsp;<a href="http://bradleyboehmke.github.io/archives/#r" style="color: rgb(128,128,128)"><font size="5" style="font-variant: small-caps">r</font></a>
+      
+
+    </p>
+      
+      <br>
+      
+  </header>
+
+  <article class="post-content">
+    <style type="text/css"> 
+<!-- 
+        .indented { 
+                padding-left: 25pt; 
+                padding-right: 50pt; 
+                } 
+--> 
+</style>
+
+<p><a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html"><img src="http://d1u2s20mo6at4b.cloudfront.net/wp-content/uploads/HTML.jpg" alt="Scraping HTML Text" style="float:left; margin:2px 8px 0px 0px; width: 17%; height: 17%;"></a>
+Vast amount of information exists across the interminable webpages that exist online.  Much of this information are considered “unstructured” texts since they don’t come in a neatly packaged speadsheet. Fortunately, HTML websites are organized documents which means these texts are actually structured within underlying HTML code elements…we just need to figure out how to extract it! This post covers the basics of scraping text from online sources.<!--more--></p>
+
+<p><br></p>
+
+<h2 id="tldr">tl;dr</h2>
+<p>Short on time? Here’s the gist. Throughout this post I illustrate how to use the <code class="highlighter-rouge">rvest</code> package to extract different text components of webpages by dissecting the <a href="https://en.wikipedia.org/wiki/Web_scraping">Wikipedia page on web scraping</a>. As I foray I cover:</p>
+
+<p class="indented">
+        <a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#html_nodes">①</a> Basic knowledge of HTML element components you'll need to scrape with rvest
+        <br>
+        <a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#scraping_nodes">②</a> How to extract text from the common HTML nodes in a webpage
+        <br>
+        <a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#specific_nodes">③</a> How to extract text from specific HTML nodes of interest
+        <br>
+        <a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#cleaning">④</a> Some of the common text cleaning that is required post-scraping
+</p>
+
+<p><br></p>
+
+<p><a name="html_nodes"></a></p>
+
+<h2 id="-html-nodes">① HTML Nodes</h2>
+<p>However, its important to first cover one of the basic components of HTML elements as we will leverage this information to pull desired information. I offer only enough insight required to begin scraping; I highly recommend <a href="http://www.amazon.com/XML-Web-Technologies-Data-Sciences/dp/1461478995"><em>XML and Web Technologies for Data Sciences with R</em></a> and <a href="http://www.amazon.com/Automated-Data-Collection-Practical-Scraping/dp/111883481X/ref=pd_sim_14_1?ie=UTF8&amp;dpID=51Tm7FHxWBL&amp;dpSrc=sims&amp;preST=_AC_UL160_SR108%2C160_&amp;refRID=1VJ1GQEY0VCPZW7VKANX"><em>Automated Data Collection with R</em></a> to learn more about HTML and XML element structures.</p>
+
+<p>HTML elements are written with a start tag, an end tag, and with the content in between: <code class="highlighter-rouge">&lt;tagname&gt;content&lt;/tagname&gt;</code>. The tags which typically contain the textual content we wish to scrape, and the tags we will leverage in the next two sections, include:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;h1&gt;</code>, <code class="highlighter-rouge">&lt;h2&gt;</code>,…,<code class="highlighter-rouge">&lt;h6&gt;</code>: Largest heading, second largest heading, etc.</li>
+  <li><code class="highlighter-rouge">&lt;p&gt;</code>: Paragraph elements</li>
+  <li><code class="highlighter-rouge">&lt;ul&gt;</code>: Unordered bulleted list</li>
+  <li><code class="highlighter-rouge">&lt;ol&gt;</code>: Ordered list</li>
+  <li><code class="highlighter-rouge">&lt;li&gt;</code>: Individual List item</li>
+  <li><code class="highlighter-rouge">&lt;div&gt;</code>: Division or section</li>
+  <li><code class="highlighter-rouge">&lt;table&gt;</code>: Table</li>
+</ul>
+
+<p>For example, text in paragraph form that you see online is wrapped with the HTML paragraph tag <code class="highlighter-rouge">&lt;p&gt;</code> as in:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="w">
+</span><span class="n">This</span><span class="w"> </span><span class="n">paragraph</span><span class="w"> </span><span class="n">represents</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="n">typical</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">paragraph</span><span class="w">
+</span><span class="k">in</span><span class="w"> </span><span class="n">HTML</span><span class="w"> </span><span class="n">form</span><span class="w">
+</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>It is through these tags that we can start to extract textual components (also referred to as nodes) of HTML webpages.</p>
+
+<p><br></p>
+
+<p><a name="scraping_nodes"></a></p>
+
+<h2 id="-scraping-html-nodes">② Scraping HTML Nodes</h2>
+<p>To scrape online text we’ll make use of the relatively newer <a href="https://cran.r-project.org/web/packages/rvest/index.html"><code class="highlighter-rouge">rvest</code></a> package. <code class="highlighter-rouge">rvest</code> was created by the RStudio team inspired by libraries such as <a href="http://www.crummy.com/software/BeautifulSoup/">beautiful soup</a> which has greatly simplified web scraping. <code class="highlighter-rouge">rvest</code> provides multiple functionalities; however, in this section we will focus only on extracting HTML text with <code class="highlighter-rouge">rvest</code>. Its important to note that <code class="highlighter-rouge">rvest</code> makes use of of the pipe operator (<code class="highlighter-rouge">%&gt;%</code>) developed through the <a href="https://cran.r-project.org/web/packages/magrittr/index.html"><code class="highlighter-rouge">magrittr</code> package</a>. If you are not familiar with the functionality of <code class="highlighter-rouge">%&gt;%</code> I recommend you jump to the tutorial on <a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#pipe">Simplifying Your Code with <code class="highlighter-rouge">%&gt;%</code></a> so that you have a better understanding of what’s going on with the code.</p>
+
+<p>To extract text from a webpage of interest, we specify what HTML elements we want to select by using <code class="highlighter-rouge">html_nodes()</code>.  For instance, if we want to scrape the primary heading for the <a href="https://en.wikipedia.org/wiki/Web_scraping">Web Scraping Wikipedia webpage</a> we simply identify the <code class="highlighter-rouge">&lt;h1&gt;</code> node as the node we want to select.  <code class="highlighter-rouge">html_nodes()</code> will identify all <code class="highlighter-rouge">&lt;h1&gt;</code> nodes on the webpage and return the HTML element.  In our example we see there is only one <code class="highlighter-rouge">&lt;h1&gt;</code> node on this webpage.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">rvest</span><span class="p">)</span><span class="w">
+
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read_html</span><span class="p">(</span><span class="s2">"https://en.wikipedia.org/wiki/Web_scraping"</span><span class="p">)</span><span class="w">
+
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"h1"</span><span class="p">)</span><span class="w">
+</span><span class="c1">## {xml_nodeset (1)}
+## [1] &lt;h1 id="firstHeading" class="firstHeading" lang="en"&gt;Web scraping&lt;/h1&gt;
+</span></code></pre>
+</div>
+
+<p>To extract only the heading text for this <code class="highlighter-rouge">&lt;h1&gt;</code> node, and not include all the HTML syntax we use <code class="highlighter-rouge">html_text()</code> which returns the heading text we see at the top of the <a href="https://en.wikipedia.org/wiki/Web_scraping">Web Scraping Wikipedia page</a>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"h1"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">## [1] "Web scraping"
+</span></code></pre>
+</div>
+
+<p>If we want to identify all the second level headings on the webpage we follow the same process but instead select the <code class="highlighter-rouge">&lt;h2&gt;</code> nodes.  In this example we see there are 10 second level headings on the <a href="https://en.wikipedia.org/wiki/Web_scraping">Web Scraping Wikipedia page</a>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">##  [1] "Contents"                             
+##  [2] "Techniques[edit]"                     
+##  [3] "Legal issues[edit]"                   
+##  [4] "Notable tools[edit]"                  
+##  [5] "See also[edit]"                       
+##  [6] "Technical measures to stop bots[edit]"
+##  [7] "Articles[edit]"                       
+##  [8] "References[edit]"                     
+##  [9] "See also[edit]"                       
+## [10] "Navigation menu"
+</span></code></pre>
+</div>
+
+<p>Next, we can move on to extracting much of the text on this webpage which is in paragraph form.  We can follow the same process illustrated above but instead we’ll select all <code class="highlighter-rouge">&lt;p&gt;</code>  nodes.  This selects the 17 paragraph elements from the web page; which we can examine by subsetting the list <code class="highlighter-rouge">p_nodes</code> to see the first line of each paragraph along with the HTML syntax. Just as before, to extract the text from these nodes and coerce them to a character string we simply apply <code class="highlighter-rouge">html_text()</code>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">p_nodes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"p"</span><span class="p">)</span><span class="w">
+
+</span><span class="nf">length</span><span class="p">(</span><span class="n">p_nodes</span><span class="p">)</span><span class="w">
+</span><span class="c1">## [1] 17
+</span><span class="w">
+</span><span class="n">p_nodes</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">]</span><span class="w">
+</span><span class="c1">## {xml_nodeset (6)}
+## [1] &lt;p&gt;&lt;b&gt;Web scraping&lt;/b&gt; (&lt;b&gt;web harvesting&lt;/b&gt; or &lt;b&gt;web data extract ...
+## [2] &lt;p&gt;Web scraping is closely related to &lt;a href="/wiki/Web_indexing" t ...
+## [3] &lt;p/&gt;
+## [4] &lt;p/&gt;
+## [5] &lt;p&gt;Web scraping is the process of automatically collecting informati ...
+## [6] &lt;p&gt;Web scraping may be against the &lt;a href="/wiki/Terms_of_use" titl ...
+</span><span class="w">
+
+</span><span class="n">p_text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"p"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+</span><span class="n">p_text</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">
+</span><span class="c1">## [1] "Web scraping (web harvesting or web data extraction) is a computer software technique of extracting information from websites. Usually, such software programs simulate human exploration of the World Wide Web by either implementing low-level Hypertext Transfer Protocol (HTTP), or embedding a fully-fledged web browser, such as Mozilla Firefox."
+</span></code></pre>
+</div>
+
+<p>Not too bad; however, we may not have captured all the text that we were hoping for.  Since we extracted text for all <code class="highlighter-rouge">&lt;p&gt;</code> nodes, we collected all identified paragraph text; however, this does not capture the text in the bulleted lists.  For example, when you look at the <a href="https://en.wikipedia.org/wiki/Web_scraping">Web Scraping Wikipedia page</a> you will notice a significant amount of text in bulleted list format following the third paragraph under the <strong><a href="https://en.wikipedia.org/wiki/Web_scraping#Techniques">Techniques</a></strong> heading.  If we look at our data we’ll see that that the text in this list format are not capture between the two paragraphs:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">p_text</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w">
+</span><span class="c1">## [1] "Web scraping is the process of automatically collecting information from the World Wide Web. It is a field with active developments sharing a common goal with the semantic web vision, an ambitious initiative that still requires breakthroughs in text processing, semantic understanding, artificial intelligence and human-computer interactions. Current web scraping solutions range from the ad-hoc, requiring human effort, to fully automated systems that are able to convert entire web sites into structured information, with limitations."
+</span><span class="w">
+</span><span class="n">p_text</span><span class="p">[</span><span class="m">6</span><span class="p">]</span><span class="w">
+</span><span class="c1">## [1] "Web scraping may be against the terms of use of some websites. The enforceability of these terms is unclear.[4] While outright duplication of original expression will in many cases be illegal, in the United States the courts ruled in Feist Publications v. Rural Telephone Service that duplication of facts is allowable. U.S. courts have acknowledged that users of \"scrapers\" or \"robots\" may be held liable for committing trespass to chattels,[5][6] which involves a computer system itself being considered personal property upon which the user of a scraper is trespassing. The best known of these cases, eBay v. Bidder's Edge, resulted in an injunction ordering Bidder's Edge to stop accessing, collecting, and indexing auctions from the eBay web site. This case involved automatic placing of bids, known as auction sniping. However, in order to succeed on a claim of trespass to chattels, the plaintiff must demonstrate that the defendant intentionally and without authorization interfered with the plaintiff's possessory interest in the computer system and that the defendant's unauthorized use caused damage to the plaintiff. Not all cases of web spidering brought before the courts have been considered trespass to chattels.[7]"
+</span></code></pre>
+</div>
+
+<p>This is because the text in this list format are contained in <code class="highlighter-rouge">&lt;ul&gt;</code> nodes. To capture the text in lists, we can use the same steps as above but we select specific nodes which represent HTML lists components. We can approach extracting list text two ways.</p>
+
+<p>First, we can pull all list elements (<code class="highlighter-rouge">&lt;ul&gt;</code>).  When scraping all <code class="highlighter-rouge">&lt;ul&gt;</code> text, the resulting data structure will be a character string vector with each element representing a single list consisting of all list items in that list.  In our running example there are 21 list elements as shown in the example that follows.  You can see the first list scraped is the table of contents and the second list scraped is the list in the <a href="https://en.wikipedia.org/wiki/Web_scraping#Techniques">Techniques</a> section.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">ul_text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"ul"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+</span><span class="nf">length</span><span class="p">(</span><span class="n">ul_text</span><span class="p">)</span><span class="w">
+</span><span class="c1">## [1] 21
+</span><span class="w">
+</span><span class="n">ul_text</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">
+</span><span class="c1">## [1] "\n1 Techniques\n2 Legal issues\n3 Notable tools\n4 See also\n5 Technical measures to stop bots\n6 Articles\n7 References\n8 See also\n"
+</span><span class="w">
+</span><span class="c1"># read the first 200 characters of the second list
+</span><span class="n">substr</span><span class="p">(</span><span class="n">ul_text</span><span class="p">[</span><span class="m">2</span><span class="p">],</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="p">)</span><span class="w">
+</span><span class="c1">## [1] "\nHuman copy-and-paste: Sometimes even the best web-scraping technology cannot replace a human’s manual examination and copy-and-paste, and sometimes this may be the only workable solution when the web"
+</span></code></pre>
+</div>
+
+<p>An alternative approach is to pull all <code class="highlighter-rouge">&lt;li&gt;</code> nodes.  This will pull the text contained in each list item for all the lists.  In our running example there’s 146 list items that we can extract from this Wikipedia page.  The first eight list items are the list of contents we see towards the top of the page. List items 9-17 are the list elements contained in the “<a href="https://en.wikipedia.org/wiki/Web_scraping#Techniques">Techniques</a>” section, list items 18-44 are the items listed under the “<a href="https://en.wikipedia.org/wiki/Web_scraping#Notable_tools">Notable Tools</a>” section, and so on.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">li_text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"li"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+</span><span class="nf">length</span><span class="p">(</span><span class="n">li_text</span><span class="p">)</span><span class="w">
+</span><span class="c1">## [1] 147
+</span><span class="w">
+</span><span class="n">li_text</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span><span class="w">
+</span><span class="c1">## [1] "1 Techniques"                      "2 Legal issues"                   
+## [3] "3 Notable tools"                   "4 See also"                       
+## [5] "5 Technical measures to stop bots" "6 Articles"                       
+## [7] "7 References"                      "8 See also"
+</span></code></pre>
+</div>
+
+<p>At this point we may believe we have all the text desired and proceed with joining the paragraph (<code class="highlighter-rouge">p_text</code>) and list (<code class="highlighter-rouge">ul_text</code> or <code class="highlighter-rouge">li_text</code>) character strings and then perform the desired textual analysis.  However, we may now have captured <em>more</em> text than we were hoping for.  For example, by scraping all lists we are also capturing the listed links in the left margin of the webpage. If we look at the 104-136 list items that we scraped, we’ll see that these texts correspond to the left margin text.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">li_text</span><span class="p">[</span><span class="m">104</span><span class="o">:</span><span class="m">136</span><span class="p">]</span><span class="w">
+</span><span class="c1">##  [1] "Main page"           "Contents"            "Featured content"   
+##  [4] "Current events"      "Random article"      "Donate to Wikipedia"
+##  [7] "Wikipedia store"     "Help"                "About Wikipedia"    
+## [10] "Community portal"    "Recent changes"      "Contact page"       
+## [13] "What links here"     "Related changes"     "Upload file"        
+## [16] "Special pages"       "Permanent link"      "Page information"   
+## [19] "Wikidata item"       "Cite this page"      "Create a book"      
+## [22] "Download as PDF"     "Printable version"   "Català"             
+## [25] "Deutsch"             "Español"             "Français"           
+## [28] "Íslenska"            "Italiano"            "Latviešu"           
+## [31] "Nederlands"          "日本語"              "Српски / srpski"
+</span></code></pre>
+</div>
+
+<p>If we desire to scrape every piece of text on the webpage than this won’t be of concern.  In fact, if we want to scrape all the text regardless of the content they represent there is an easier approach.  We can capture all the content to include text in paragraph (<code class="highlighter-rouge">&lt;p&gt;</code>), lists (<code class="highlighter-rouge">&lt;ul&gt;</code>, <code class="highlighter-rouge">&lt;ol&gt;</code>, and <code class="highlighter-rouge">&lt;li&gt;</code>), and even data in tables (<code class="highlighter-rouge">&lt;table&gt;</code>) by using <code class="highlighter-rouge">&lt;div&gt;</code>.  This is because these other elements are usually a subsidiary of an HTML division or section so pulling all <code class="highlighter-rouge">&lt;div&gt;</code> nodes will extract all text contained in that division or section regardless if it is also contained in a paragraph or list.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">all_text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"div"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><br></p>
+
+<p><a name="specific_nodes"></a></p>
+
+<h2 id="-scraping-specific-html-nodes">③ Scraping Specific HTML Nodes</h2>
+<p>However, if we are concerned only with specific content on the webpage then we need to make our HTML node selection process a little more focused.  To do this we, we can use our browser’s developer tools to examine the webpage we are scraping and get more details on specific nodes of interest.  If you are using Chrome or Firefox you can open the developer tools by clicking F12 (Cmd + Opt + I for Mac) or for Safari you would use Command-Option-I. An additional option which is recommended by Hadley Wickham is to use <a href="http://selectorgadget.com/">selectorgadget.com</a>, a Chrome extension, to help identify the web page elements you need<sup><a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#fn1" id="ref1">1</a></sup>.</p>
+
+<p>Once the developers tools are opened your primary concern is with the element selector. This is located in the top lefthand corner of the developers tools window.</p>
+
+<p><img src="./Scraping HTML Text · Bradley Boehmke_files/element_selector.jpg" alt="Element Selector"></p>
+
+<p>Once you’ve selected the element selector you can now scroll over the elements of the webpage which will cause each element you scroll over to be highlighted.  Once you’ve identified the element you want to focus on, select it. This will cause the element to be identified in the developer tools window. For example, if I am only interested in the main body of the Web Scraping content on the Wikipedia page then I would select the element that highlights the entire center component of the webpage.  This highlights the corresponding element <code class="highlighter-rouge">&lt;div id="bodyContent" class="mw-body-content"&gt;</code> in the developer tools window as the following illustrates.</p>
+
+<p><img src="./Scraping HTML Text · Bradley Boehmke_files/body_content_selected.png" alt="Body Content Selected"></p>
+
+<p>I can now use this information to select and scrape all the text from this specific <code class="highlighter-rouge">&lt;div&gt;</code> node by calling the ID name (“#mw-content-text”) in <code class="highlighter-rouge">html_nodes()</code><sup><a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#fn2" id="ref2">2</a></sup>.  As you can see below, the text that is scraped begins with the first line in the main body of the Web Scraping content and ends with the text in the <a href="https://en.wikipedia.org/wiki/Web_scraping#See_also_2">See Also</a> section which is the last bit of text directly pertaining to Web Scraping on the webpage. Explicitly, we have pulled the specific text associated with the web content we desire.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">body_text</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#mw-content-text"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># read the first 207 characters
+</span><span class="n">substr</span><span class="p">(</span><span class="n">body_text</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">207</span><span class="p">)</span><span class="w">
+</span><span class="c1">## [1] "Web scraping (web harvesting or web data extraction) is a computer software technique of extracting information from websites. Usually, such software programs simulate human exploration of the World Wide Web"
+</span><span class="w">
+</span><span class="c1"># read the last 73 characters
+</span><span class="n">substr</span><span class="p">(</span><span class="n">body_text</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nchar</span><span class="p">(</span><span class="n">body_text</span><span class="p">)</span><span class="m">-73</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nchar</span><span class="p">(</span><span class="n">body_text</span><span class="p">))</span><span class="w">
+</span><span class="c1">## [1] "See also[edit]\n\nData scraping\nData wrangling\nKnowledge extraction\n\n\n\n\n\n\n\n\n"
+</span></code></pre>
+</div>
+
+<p>Using the developer tools approach allows us to be as specific as we desire.  We can identify the class name for a specific HTML element and scrape the text for only that node rather than all the other elements with similar tags. This allows us to scrape the main body of content as we just illustrated or we can also identify specific headings, paragraphs, lists, and list components if we desire to scrape only these specific pieces of text:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1"># Scraping a specific heading
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#Techniques"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">## [1] "Techniques"
+</span><span class="w">
+</span><span class="c1"># Scraping a specific paragraph
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#mw-content-text &gt; p:nth-child(20)"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">## [1] "In Australia, the Spam Act 2003 outlaws some forms of web harvesting, although this only applies to email addresses.[20][21]"
+</span><span class="w">
+</span><span class="c1"># Scraping a specific list
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#mw-content-text &gt; div:nth-child(22)"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">## [1] "\n\nApache Camel\nArchive.is\nAutomation Anywhere\nConvertigo\ncURL\nData Toolbar\nDiffbot\nFirebug\nGreasemonkey\nHeritrix\nHtmlUnit\nHTTrack\niMacros\nImport.io\nJaxer\nNode.js\nnokogiri\nPhantomJS\nScraperWiki\nScrapy\nSelenium\nSimpleTest\nwatir\nWget\nWireshark\nWSO2 Mashup Server\nYahoo! Query Language (YQL)\n\n"
+</span><span class="w">
+</span><span class="c1"># Scraping a specific reference list item
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#cite_note-22"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">## [1] "^ \"Web Scraping: Everything You Wanted to Know (but were afraid to ask)\". Distil Networks. 2015-07-22. Retrieved 2015-11-04.&nbsp;"
+</span></code></pre>
+</div>
+
+<p><br></p>
+
+<p><a name="cleaning"></a></p>
+
+<h2 id="-cleaning-up">④ Cleaning up</h2>
+<p>With any webscraping activity, especially involving text, there is likely to be some clean-up involved. For example, in the previous example we saw that we can specifically pull the list of <a href="https://en.wikipedia.org/wiki/Web_scraping#Notable_tools"><strong>Notable Tools</strong></a>; however, you can see that in between each list item rather than a space there contains one or more <code class="highlighter-rouge">\n</code> which is used in HTML to specify a new line. We can clean this up quickly with a little <a href="http://bradleyboehmke.github.io/tutorials/string_manipulation">character string manipulation</a>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#mw-content-text &gt; div:nth-child(22)"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w">
+</span><span class="c1">## [1] "\n\nApache Camel\nArchive.is\nAutomation Anywhere\nConvertigo\ncURL\nData Toolbar\nDiffbot\nFirebug\nGreasemonkey\nHeritrix\nHtmlUnit\nHTTrack\niMacros\nImport.io\nJaxer\nNode.js\nnokogiri\nPhantomJS\nScraperWiki\nScrapy\nSelenium\nSimpleTest\nwatir\nWget\nWireshark\nWSO2 Mashup Server\nYahoo! Query Language (YQL)\n\n"
+</span><span class="w">
+</span><span class="n">scraping_wiki</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">html_nodes</span><span class="p">(</span><span class="s2">"#mw-content-text &gt; div:nth-child(22)"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">html_text</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+        </span><span class="n">strsplit</span><span class="p">(</span><span class="n">split</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\n"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">unlist</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">.</span><span class="p">[</span><span class="n">.</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s2">""</span><span class="p">]</span><span class="w">
+</span><span class="c1">##  [1] "Apache Camel"                "Archive.is"                 
+##  [3] "Automation Anywhere"         "Convertigo"                 
+##  [5] "cURL"                        "Data Toolbar"               
+##  [7] "Diffbot"                     "Firebug"                    
+##  [9] "Greasemonkey"                "Heritrix"                   
+## [11] "HtmlUnit"                    "HTTrack"                    
+## [13] "iMacros"                     "Import.io"                  
+## [15] "Jaxer"                       "Node.js"                    
+## [17] "nokogiri"                    "PhantomJS"                  
+## [19] "ScraperWiki"                 "Scrapy"                     
+## [21] "Selenium"                    "SimpleTest"                 
+## [23] "watir"                       "Wget"                       
+## [25] "Wireshark"                   "WSO2 Mashup Server"         
+## [27] "Yahoo! Query Language (YQL)"
+</span></code></pre>
+</div>
+
+<p>Similarly, as we saw in our example above with scraping the main body content (<code class="highlighter-rouge">body_text</code>), there are extra characters (i.e. <code class="highlighter-rouge">\n</code>, <code class="highlighter-rouge">\</code>, <code class="highlighter-rouge">^</code>) in the text that we may not want.  Using a <a href="http://bradleyboehmke.github.io/tutorials/regex">little regex</a> we can clean this up so that our character string consists of only text that we see on the screen and no additional HTML code embedded throughout the text.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># read the last 700 characters
+</span><span class="n">substr</span><span class="p">(</span><span class="n">body_text</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nchar</span><span class="p">(</span><span class="n">body_text</span><span class="p">)</span><span class="m">-700</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nchar</span><span class="p">(</span><span class="n">body_text</span><span class="p">))</span><span class="w">
+</span><span class="c1">## [1] " 2010). \"Intellectual Property: Website Terms of Use\". Issue 26: June 2010. LK Shields Solicitors Update. p.&nbsp;03. Retrieved 2012-04-19.&nbsp;\n^ National Office for the Information Economy (February 2004). \"Spam Act 2003: An overview for business\" (PDF). Australian Communications Authority. p.&nbsp;6. Retrieved 2009-03-09.&nbsp;\n^ National Office for the Information Economy (February 2004). \"Spam Act 2003: A practical guide for business\" (PDF). Australian Communications Authority. p.&nbsp;20. Retrieved 2009-03-09.&nbsp;\n^ \"Web Scraping: Everything You Wanted to Know (but were afraid to ask)\". Distil Networks. 2015-07-22. Retrieved 2015-11-04.&nbsp;\n\n\nSee also[edit]\n\nData scraping\nData wrangling\nKnowledge extraction\n\n\n\n\n\n\n\n\n"
+</span><span class="w">
+</span><span class="c1"># clean up text
+</span><span class="n">body_text</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\n"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"[\\^]"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\""</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">str_replace_all</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\\s+"</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">str_trim</span><span class="p">(</span><span class="n">side</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"both"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+        </span><span class="n">substr</span><span class="p">(</span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nchar</span><span class="p">(</span><span class="n">body_text</span><span class="p">)</span><span class="m">-700</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nchar</span><span class="p">(</span><span class="n">body_text</span><span class="p">))</span><span class="w">
+</span><span class="c1">## [1] "012-04-19. National Office for the Information Economy (February 2004). Spam Act 2003: An overview for business (PDF). Australian Communications Authority. p. 6. Retrieved 2009-03-09. National Office for the Information Economy (February 2004). Spam Act 2003: A practical guide for business (PDF). Australian Communications Authority. p. 20. Retrieved 2009-03-09. Web Scraping: Everything You Wanted to Know (but were afraid to ask) . Distil Networks. 2015-07-22. Retrieved 2015-11-04. See also[edit] Data scraping Data wrangling Knowledge extraction"
+</span></code></pre>
+</div>
+
+<p><br></p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>So there we have it, text scraping in a nutshell.  Although not all encompassing, this post covered the basics of scraping text from HTML documents. Whether you want to scrape text from all common text-containing nodes such as <code class="highlighter-rouge">&lt;div&gt;</code>, <code class="highlighter-rouge">&lt;p&gt;</code>, <code class="highlighter-rouge">&lt;ul&gt;</code> and the like or you want to scrape from a specific node using the specific ID, this post provides you the basic fundamentals of using <code class="highlighter-rouge">rvest</code> to scrape the text you need. Now go forth and scrape!</p>
+
+<p><small><a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#">Go to top</a></small></p>
+
+<p class="footnote" style="line-height:0.75">
+<sup id="fn1">1. You can learn more about selectors at <a href="http://flukeout.github.io/">flukeout.github.io</a><a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#ref1" title="Jump back to footnote 1 in the text.">"↩"</a><sup>
+&lt;/P&gt;
+</sup></sup></p><p class="footnote" style="line-height:0.75">
+<sup id="fn2">2. You can simply assess the name of the ID in the highlighted element or you can  right click the highlighted element in the developer tools window and select <em>Copy selector</em>.  You can then paste directly into <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mstyle displaystyle=&quot;true&quot;&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mstyle&gt;&lt;/math&gt;" role="presentation" style="font-size: 112%; position: relative;"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mstyle"><span id="MJXc-Node-4" class="mjx-mrow"><span id="MJXc-Node-5" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.485em; padding-bottom: 0.271em;">h</span></span><span id="MJXc-Node-6" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.378em; padding-bottom: 0.271em;">t</span></span><span id="MJXc-Node-7" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.217em; padding-bottom: 0.271em;">m</span></span><span id="MJXc-Node-8" class="mjx-msub"><span class="mjx-base"><span id="MJXc-Node-9" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.485em; padding-bottom: 0.271em;">l</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.212em; padding-right: 0.071em;"><span id="MJXc-Node-10" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.217em; padding-bottom: 0.271em;">n</span></span></span></span><span id="MJXc-Node-11" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.217em; padding-bottom: 0.271em;">o</span></span><span id="MJXc-Node-12" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.485em; padding-bottom: 0.271em; padding-right: 0.003em;">d</span></span><span id="MJXc-Node-13" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.217em; padding-bottom: 0.271em;">e</span></span><span id="MJXc-Node-14" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.217em; padding-bottom: 0.271em;">s</span></span><span id="MJXc-Node-15" class="mjx-mrow"><span id="MJXc-Node-16" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.485em; padding-bottom: 0.592em;">(</span></span><span id="MJXc-Node-17" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.485em; padding-bottom: 0.592em;">)</span></span></span></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>h</mi><mi>t</mi><mi>m</mi><msub><mi>l</mi><mi>n</mi></msub><mi>o</mi><mi>d</mi><mi>e</mi><mi>s</mi><mrow><mo>(</mo><mo>)</mo></mrow></mstyle></math></span></span><script type="math/asciimath" id="MathJax-Element-1">html_nodes()</script> as it will paste the exact ID name that you need for that element.<a href="http://bradleyboehmke.github.io/2015/12/scraping-html-text.html#ref2" title="Jump back to footnote 2 in the text.">"↩"</a><sup>
+&lt;/P&gt;
+
+</sup></sup></p><p></p>
+
+  </article>
+
+</div>
+
+
+
+
+
+
+
+      </div>
+    
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73968959-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+
+<div id="feedly-mini" title="feedly Mini tookit"></div></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>

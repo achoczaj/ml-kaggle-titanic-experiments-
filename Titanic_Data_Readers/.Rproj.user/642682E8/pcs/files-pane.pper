@@ -1,0 +1,13 @@
+{
+    "path" : "C:/Labs_ML/Kaggle/C01/R-scripts/Titanic_Data_Readers",
+    "sortOrder" : [
+        {
+            "ascending" : false,
+            "columnIndex" : 4
+        },
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
